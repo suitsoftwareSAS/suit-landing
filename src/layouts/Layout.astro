@@ -1,40 +1,52 @@
 ---
 export interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
 }
 
-const { title = "Suit Software - Modern Software Solutions", description = "High-quality web development, mobile apps, UI/UX design, and AWS consulting services." } = Astro.props;
+const {
+  title = "Suit Software - Modern Software Solutions",
+  description = "High-quality web development, mobile apps, UI/UX design, and AWS consulting services.",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
-		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	</head>
-	<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta
+      name="facebook-domain-verification"
+      content="yi3ui9a15tyuw74cofv68ycq038r3w"
+    />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
+  >
+    <slot />
+  </body>
 </html>
 
 <style>
-	html {
-		font-family: 'Inter', system-ui, sans-serif;
-		scroll-behavior: smooth;
-	}
-	
-	body {
-		margin: 0;
-		width: 100%;
-		min-height: 100vh;
-		line-height: 1.6;
-	}
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
 </style>
