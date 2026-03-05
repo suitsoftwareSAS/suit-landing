@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import Services from "../../components/Services.astro";
+import Clients from "../../components/Clients.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
+import "../../styles/global.css";
+
+const lang = "en";
+---
+
+<Layout
+  title="Suit Software - Modern Software Solutions"
+  description="High-quality web development, mobile apps, UI/UX design, and cloud consulting services. Transform your business with modern software solutions."
+  lang={lang}
+>
+  <Header lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <Services lang={lang} />
+    <Clients lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Layout>
