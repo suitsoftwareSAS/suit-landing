@@ -26,6 +26,15 @@ export interface Gallery4Props {
   items: Gallery4Item[];
 }
 
+// Transforms an Unsplash/Imgix URL to request a specific format and width
+function buildImgixUrl(url: string, format: string, width: number): string {
+  const parsed = new URL(url);
+  parsed.searchParams.set("w", String(width));
+  parsed.searchParams.set("q", "80");
+  parsed.searchParams.set("fm", format);
+  return parsed.toString();
+}
+
 const Gallery4 = ({
   title = "Case Studies",
   description = "Discover how leading companies and developers are leveraging modern web technologies to build exceptional digital experiences.",
@@ -123,11 +132,30 @@ const Gallery4 = ({
               >
                 <a href={item.href} className="group block rounded-2xl">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-2xl md:aspect-[5/4] lg:aspect-[16/9] border-2 border-surface-200 dark:border-surface-700 hover:border-brand-400 dark:hover:border-brand-600 transition-all duration-300 hover:shadow-2xl">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                    />
+                    <picture>
+                      {/* AVIF — best compression, supported by modern browsers */}
+                      <source
+                        type="image/avif"
+                        srcSet={`${buildImgixUrl(item.image, "avif", 360)} 360w, ${buildImgixUrl(item.image, "avif", 720)} 720w`}
+                        sizes="(max-width: 768px) 320px, 360px"
+                      />
+                      {/* WebP — wide browser support, good compression */}
+                      <source
+                        type="image/webp"
+                        srcSet={`${buildImgixUrl(item.image, "webp", 360)} 360w, ${buildImgixUrl(item.image, "webp", 720)} 720w`}
+                        sizes="(max-width: 768px) 320px, 360px"
+                      />
+                      {/* JPEG fallback */}
+                      <img
+                        src={buildImgixUrl(item.image, "jpg", 720)}
+                        srcSet={`${buildImgixUrl(item.image, "jpg", 360)} 360w, ${buildImgixUrl(item.image, "jpg", 720)} 720w`}
+                        sizes="(max-width: 768px) 320px, 360px"
+                        alt={item.title}
+                        className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                     <div className="absolute inset-0 h-full bg-[linear-gradient(to_bottom,transparent_0%,rgba(34,9,44,0.4)_60%,rgba(34,9,44,0.9)_100%)] dark:bg-[linear-gradient(to_bottom,transparent_0%,rgba(34,9,44,0.5)_60%,rgba(34,9,44,0.95)_100%)]" />
                     <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 md:p-8 text-white">
                       <h4 className="mb-3 text-xl font-bold md:text-2xl leading-tight">
@@ -147,18 +175,22 @@ const Gallery4 = ({
             ))}
           </CarouselContent>
         </Carousel>
-        <div className="mt-8 flex justify-center gap-2">
+        <div className="mt-8 flex justify-center">
           {items.map((_, index) => (
             <button
               key={index}
-              className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                currentSlide === index 
-                  ? "bg-brand-600 dark:bg-brand-500 w-8" 
-                  : "bg-surface-300 dark:bg-surface-600 hover:bg-brand-400 dark:hover:bg-brand-600"
-              }`}
+              className="group flex items-center justify-center min-h-11 min-w-11"
               onClick={() => carouselApi?.scrollTo(index)}
               aria-label={`Go to slide ${index + 1}`}
-            />
+            >
+              <span
+                className={`block rounded-full transition-all duration-300 h-2 ${
+                  currentSlide === index
+                    ? "bg-brand-600 dark:bg-brand-500 w-8"
+                    : "w-2 bg-surface-300 dark:bg-surface-600 group-hover:bg-brand-400 dark:group-hover:bg-brand-600"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

@@ -17,6 +17,8 @@ const {
 <!doctype html>
 <html lang={lang}>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Dark mode: prevent flash of wrong theme -->
     <script is:inline>
       (function() {
@@ -29,33 +31,40 @@ const {
         }
       })();
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E2L1SJDEGV"
-    ></script>
+    <!-- Analytics: dataLayer queue initialised immediately so no events are lost.
+         Actual script loading is deferred until after window.load to remove
+         ~251 KiB from the critical path (gtag.js + gtm.js). -->
     <script is:inline>
+      // Initialise dataLayer queue and gtag stub immediately
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
       gtag("config", "G-E2L1SJDEGV");
+
+      // Queue the GTM start event so timing is accurate
+      window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+      // Load both scripts after the page is fully loaded
+      function loadAnalytics() {
+        // GA4
+        var gaScript = document.createElement("script");
+        gaScript.async = true;
+        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-E2L1SJDEGV";
+        document.head.appendChild(gaScript);
+
+        // GTM
+        var gtmScript = document.createElement("script");
+        gtmScript.async = true;
+        gtmScript.src = "https://www.googletagmanager.com/gtm.js?id=GTM-NC5CQP3Q";
+        document.head.appendChild(gtmScript);
+      }
+
+      if (document.readyState === "complete") {
+        loadAnalytics();
+      } else {
+        window.addEventListener("load", loadAnalytics);
+      }
     </script>
-    <!-- Google Tag Manager -->
-    <script is:inline>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-NC5CQP3Q");
-    </script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/logo-white.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -66,10 +75,19 @@ const {
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Load Google Fonts asynchronously to avoid render-blocking -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
   </head>
   <body class="font-body bg-white dark:bg-surface-950 text-surface-900 dark:text-surface-100 antialiased">
     <!-- Google Tag Manager (noscript) -->
