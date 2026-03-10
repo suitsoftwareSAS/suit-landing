@@ -1,5 +1,7 @@
 ---
 import { t, type Lang } from "../i18n/translations";
+import { Gallery4 } from "../components/ui/gallery4";
+import type { Gallery4Item } from "../components/ui/gallery4";
 
 interface Props {
   lang?: Lang;
@@ -27,42 +29,92 @@ const testimonials = [
     initials: "DW",
   },
 ];
+
+const caseStudies: Gallery4Item[] = [
+  {
+    id: "tech-co",
+    title: t(lang, "caseStudies.techco.title"),
+    description: t(lang, "caseStudies.techco.description"),
+    href: "#contact",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1080&q=80",
+  },
+  {
+    id: "startup",
+    title: t(lang, "caseStudies.startup.title"),
+    description: t(lang, "caseStudies.startup.description"),
+    href: "#contact",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1080&q=80",
+  },
+  {
+    id: "fintech",
+    title: t(lang, "caseStudies.fintech.title"),
+    description: t(lang, "caseStudies.fintech.description"),
+    href: "#contact",
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1080&q=80",
+  },
+  {
+    id: "ecommerce",
+    title: t(lang, "caseStudies.ecommerce.title"),
+    description: t(lang, "caseStudies.ecommerce.description"),
+    href: "#contact",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1080&q=80",
+  },
+  {
+    id: "health",
+    title: t(lang, "caseStudies.health.title"),
+    description: t(lang, "caseStudies.health.description"),
+    href: "#contact",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1080&q=80",
+  },
+  {
+    id: "saas",
+    title: t(lang, "caseStudies.saas.title"),
+    description: t(lang, "caseStudies.saas.description"),
+    href: "#contact",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1080&q=80",
+  },
+];
 ---
 
-<section id="clients" class="py-24 bg-white dark:bg-surface-950">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="clients" class="py-24 lg:py-32 bg-surface-50 dark:bg-surface-900 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-500/5 dark:bg-brand-600/5 rounded-full filter blur-3xl"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-surface-900 dark:text-white text-balance">
+      <span class="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold tracking-wide uppercase rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-400 border border-brand-200 dark:border-brand-800 mb-4">
+        {t(lang, "clients.label")}
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight text-surface-900 dark:text-white text-balance font-sans">
         {t(lang, "clients.title")}
       </h2>
-      <p class="mt-4 text-lg text-surface-600 dark:text-surface-400 leading-relaxed">
+      <p class="mt-6 text-lg sm:text-xl text-surface-600 dark:text-surface-300 leading-relaxed">
         {t(lang, "clients.description")}
       </p>
     </div>
 
-    <!-- Client Logos -->
-    <div class="grid grid-cols-3 md:grid-cols-6 gap-6 mb-20">
-      {["TECH CO", "STARTUP", "FINTECH", "E-COMM", "HEALTH", "SAAS"].map((name, index) => (
-        <div class:list={[
-          "flex items-center justify-center p-6 bg-surface-50 dark:bg-surface-900 border border-surface-200 dark:border-surface-800 rounded-xl hover:border-brand-300 dark:hover:border-brand-700 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 reveal-on-scroll reveal-scale",
-          index < 3 ? `reveal-delay-${index + 1}` : `reveal-delay-${index - 2}`
-        ]}>
-          <span class="text-sm font-bold text-surface-400 dark:text-surface-600 tracking-wider">{name}</span>
-        </div>
-      ))}
+    <!-- Case Studies Gallery -->
+    <div class="mb-20">
+      <Gallery4 
+        client:load
+        title={t(lang, "caseStudies.title")}
+        description={t(lang, "caseStudies.description")}
+        readMore={t(lang, "caseStudies.readMore")}
+        items={caseStudies}
+      />
     </div>
 
     <!-- Testimonials -->
-    <div class="mb-16">
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-center text-surface-900 dark:text-white mb-12 reveal-on-scroll">
+    <div class="mb-20">
+      <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-center text-surface-900 dark:text-white mb-12 reveal-on-scroll font-sans">
         {t(lang, "clients.testimonials.title")}
       </h3>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
         {testimonials.map((testimonial, index) => (
           <div class:list={[
-            "bg-surface-50 dark:bg-surface-900 border border-surface-200 dark:border-surface-800 rounded-2xl p-8 flex flex-col transition-all duration-300 hover:shadow-lg hover:border-brand-300 dark:hover:border-brand-700 hover:-translate-y-1 reveal-on-scroll",
+            "bg-white dark:bg-surface-800 border-2 border-surface-200 dark:border-surface-700 rounded-3xl p-8 lg:p-10 flex flex-col transition-all duration-300 hover:shadow-2xl hover:border-brand-400 dark:hover:border-brand-600 hover:-translate-y-2 reveal-on-scroll",
             `reveal-delay-${index + 1}`
           ]}>
             <!-- Stars -->
@@ -78,9 +130,9 @@ const testimonials = [
               "{t(lang, testimonial.quoteKey)}"
             </blockquote>
 
-            <div class="flex items-center gap-3 pt-6 border-t border-surface-200 dark:border-surface-800">
-              <div class="w-10 h-10 bg-brand-900 dark:bg-brand-600 rounded-full flex items-center justify-center">
-                <span class="text-white text-sm font-bold">{testimonial.initials}</span>
+            <div class="flex items-center gap-3 pt-6 border-t-2 border-surface-200 dark:border-surface-700">
+              <div class="w-12 h-12 bg-gradient-to-br from-brand-600 to-brand-500 dark:from-brand-500 dark:to-brand-600 rounded-xl flex items-center justify-center shadow-lg">
+                <span class="text-white text-base font-black">{testimonial.initials}</span>
               </div>
               <div>
                 <div class="font-semibold text-surface-900 dark:text-white text-sm">
