@@ -30,7 +30,7 @@ export interface Gallery4Props {
 function buildImgixUrl(url: string, format: string, width: number): string {
   const parsed = new URL(url);
   parsed.searchParams.set("w", String(width));
-  parsed.searchParams.set("q", "80");
+  parsed.searchParams.set("q", "90");
   parsed.searchParams.set("fm", format);
   return parsed.toString();
 }
@@ -136,20 +136,20 @@ const Gallery4 = ({
                       {/* AVIF — best compression, supported by modern browsers */}
                       <source
                         type="image/avif"
-                        srcSet={`${buildImgixUrl(item.image, "avif", 360)} 360w, ${buildImgixUrl(item.image, "avif", 720)} 720w`}
-                        sizes="(max-width: 768px) 320px, 360px"
+                        srcSet={`${buildImgixUrl(item.image, "avif", 640)} 640w, ${buildImgixUrl(item.image, "avif", 1280)} 1280w`}
+                        sizes="(max-width: 768px) 640px, 1280px"
                       />
                       {/* WebP — wide browser support, good compression */}
                       <source
                         type="image/webp"
-                        srcSet={`${buildImgixUrl(item.image, "webp", 360)} 360w, ${buildImgixUrl(item.image, "webp", 720)} 720w`}
-                        sizes="(max-width: 768px) 320px, 360px"
+                        srcSet={`${buildImgixUrl(item.image, "webp", 640)} 640w, ${buildImgixUrl(item.image, "webp", 1280)} 1280w`}
+                        sizes="(max-width: 768px) 640px, 1280px"
                       />
                       {/* JPEG fallback */}
                       <img
-                        src={buildImgixUrl(item.image, "jpg", 720)}
-                        srcSet={`${buildImgixUrl(item.image, "jpg", 360)} 360w, ${buildImgixUrl(item.image, "jpg", 720)} 720w`}
-                        sizes="(max-width: 768px) 320px, 360px"
+                        src={buildImgixUrl(item.image, "jpg", 1280)}
+                        srcSet={`${buildImgixUrl(item.image, "jpg", 640)} 640w, ${buildImgixUrl(item.image, "jpg", 1280)} 1280w`}
+                        sizes="(max-width: 768px) 640px, 1280px"
                         alt={item.title}
                         className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
