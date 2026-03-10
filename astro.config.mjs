@@ -15,6 +15,11 @@ export default defineConfig({
     port: 4321,
   },
 
+  build: {
+    // Inline all CSS into <style> tags to eliminate render-blocking stylesheet requests
+    inlineStylesheets: "always",
+  },
+
   vite: {
     plugins: [tailwindcss()],
     server: {
