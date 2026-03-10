@@ -9,28 +9,28 @@ interface Props {
 const { lang = "en" } = Astro.props;
 ---
 
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-surface-950/80 backdrop-blur-lg border-b border-surface-200/50 dark:border-surface-800/50 transition-shadow duration-300">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 glass bg-white/90 dark:bg-surface-950/90 border-b border-surface-200/50 dark:border-surface-800/50 transition-shadow duration-300">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
+    <div class="flex justify-between items-center h-16 lg:h-18">
       <!-- Logo -->
       <a href={lang === "en" ? "/" : `/${lang}/`} class="flex items-center gap-3 group">
-        <img src="/logo-dark.svg" alt="Suit Software" class="h-8 w-auto block dark:hidden transition-transform duration-300 group-hover:scale-105" />
-        <img src="/logo-white.svg" alt="Suit Software" class="h-8 w-auto hidden dark:block transition-transform duration-300 group-hover:scale-105" />
-        <span class="text-lg font-bold text-brand-900 dark:text-white tracking-tight">Suit Software</span>
+        <img src="/logo-dark.svg" alt="Suit Software" class="h-8 lg:h-9 w-auto block dark:hidden transition-transform duration-300 group-hover:scale-105" />
+        <img src="/logo-white.svg" alt="Suit Software" class="h-8 lg:h-9 w-auto hidden dark:block transition-transform duration-300 group-hover:scale-105" />
+        <span class="text-lg lg:text-xl font-black text-brand-900 dark:text-white tracking-tight font-sans">Suit Software</span>
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center gap-1">
-        <a href="#home" class="px-4 py-2 text-sm font-medium text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-lg hover:bg-surface-100 dark:hover:bg-surface-800 transition-all duration-200">
+      <div class="hidden md:flex items-center gap-2">
+        <a href="#home" class="px-4 py-2 text-sm font-semibold text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-xl hover:bg-brand-50 dark:hover:bg-surface-800 transition-all duration-200">
           {t(lang, "nav.home")}
         </a>
-        <a href="#services" class="px-4 py-2 text-sm font-medium text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-lg hover:bg-surface-100 dark:hover:bg-surface-800 transition-all duration-200">
+        <a href="#services" class="px-4 py-2 text-sm font-semibold text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-xl hover:bg-brand-50 dark:hover:bg-surface-800 transition-all duration-200">
           {t(lang, "nav.services")}
         </a>
-        <a href="#clients" class="px-4 py-2 text-sm font-medium text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-lg hover:bg-surface-100 dark:hover:bg-surface-800 transition-all duration-200">
+        <a href="#clients" class="px-4 py-2 text-sm font-semibold text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-xl hover:bg-brand-50 dark:hover:bg-surface-800 transition-all duration-200">
           {t(lang, "nav.clients")}
         </a>
-        <a href="#contact" class="px-4 py-2 text-sm font-medium text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-lg hover:bg-surface-100 dark:hover:bg-surface-800 transition-all duration-200">
+        <a href="#contact" class="px-4 py-2 text-sm font-semibold text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-xl hover:bg-brand-50 dark:hover:bg-surface-800 transition-all duration-200">
           {t(lang, "nav.contact")}
         </a>
       </div>
@@ -38,10 +38,10 @@ const { lang = "en" } = Astro.props;
       <!-- Actions: Get Started | Language | Dark Mode | Mobile Menu -->
       <div class="flex items-center gap-2">
         <!-- 1. CTA Get Started -->
-        <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-brand-900 hover:bg-brand-800 dark:bg-brand-600 dark:hover:bg-brand-500 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-brand-900/20 dark:hover:shadow-brand-600/20">
+        <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 rounded-xl transition-all duration-200 shadow-md shadow-brand-500/30 hover:shadow-lg hover:shadow-brand-500/40 hover:-translate-y-0.5">
           {t(lang, "nav.getStarted")}
-          <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
           </svg>
         </a>
 

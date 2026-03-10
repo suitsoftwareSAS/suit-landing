@@ -72,10 +72,10 @@ export const translations = {
     "process.step3.description":
       "Building your solution with clean, scalable code.",
     "process.step4.title": "Launch",
-    "process.step4.description":
-      "Testing, deployment, and ongoing support.",
+    "process.step4.description": "Testing, deployment, and ongoing support.",
 
     // Clients
+    "clients.label": "Innovation and software for growing businesses",
     "clients.title": "Trusted by Industry Leaders",
     "clients.description":
       "We have worked with companies across various industries, helping them achieve their digital transformation goals.",
@@ -84,6 +84,30 @@ export const translations = {
     "clients.cta.description":
       "Let's discuss how we can help transform your business with modern software solutions.",
     "clients.cta.button": "Start Your Project",
+
+    // Case Studies
+    "caseStudies.title": "Success Stories",
+    "caseStudies.description":
+      "Discover how we've helped companies across various industries achieve their digital transformation goals through innovative software solutions.",
+    "caseStudies.readMore": "Read more",
+    "caseStudies.techco.title": "Tech Co: Cloud Migration Success",
+    "caseStudies.techco.description":
+      "Helped a leading tech company migrate their entire infrastructure to the cloud, resulting in 60% cost reduction and improved scalability.",
+    "caseStudies.startup.title": "Startup: MVP to Production",
+    "caseStudies.startup.description":
+      "Built a scalable SaaS platform from MVP to production, helping a startup secure Series A funding and onboard 10,000+ users.",
+    "caseStudies.fintech.title": "FinTech: Secure Payment Platform",
+    "caseStudies.fintech.description":
+      "Developed a PCI-compliant payment processing system handling millions in transactions with 99.99% uptime.",
+    "caseStudies.ecommerce.title": "E-Commerce: Performance Optimization",
+    "caseStudies.ecommerce.description":
+      "Optimized an e-commerce platform resulting in 3x faster page loads, 40% higher conversion rates, and increased revenue.",
+    "caseStudies.health.title": "Healthcare: Patient Portal",
+    "caseStudies.health.description":
+      "Created a HIPAA-compliant patient portal enabling secure communication between healthcare providers and patients.",
+    "caseStudies.saas.title": "SaaS: Enterprise Dashboard",
+    "caseStudies.saas.description":
+      "Delivered a comprehensive analytics dashboard for enterprise clients with real-time data visualization and reporting.",
 
     // Testimonials
     "testimonial.1.quote":
@@ -100,6 +124,7 @@ export const translations = {
     "testimonial.3.role": "CTO, FinanceFlow",
 
     // Contact
+    "contact.label": "Get in Touch",
     "contact.title": "Get In Touch",
     "contact.description":
       "Ready to start your next project? Let's discuss how we can bring your vision to life.",
@@ -109,7 +134,7 @@ export const translations = {
     "contact.email": "Email",
     "contact.phone": "Phone",
     "contact.office": "Office",
-    "contact.office.value": "Azuay, Cuenca, Ecuador",
+    "contact.office.value": "Loja, Cuenca, Quito, Ecuador",
     "contact.response.title": "Quick Response Time",
     "contact.response.description":
       "We typically respond to all inquiries within 24 hours. For urgent matters, feel free to call us directly.",
@@ -221,19 +246,42 @@ export const translations = {
     "process.step3.description":
       "Construir tu soluci\u00f3n con c\u00f3digo limpio y escalable.",
     "process.step4.title": "Lanzamiento",
-    "process.step4.description":
-      "Pruebas, despliegue y soporte continuo.",
+    "process.step4.description": "Pruebas, despliegue y soporte continuo.",
 
     // Clients
-    "clients.title": "L\u00edderes de la Industria Conf\u00edan en Nosotros",
+    "clients.label": "Innovación y software para empresas que crecen",
+    "clients.title": "Líderes de la Industria Confían en Nosotros",
     "clients.description":
       "Hemos trabajado con empresas de diversas industrias, ayud\u00e1ndolas a alcanzar sus objetivos de transformaci\u00f3n digital.",
     "clients.testimonials.title": "Lo Que Dicen Nuestros Clientes",
-    "clients.cta.title": "\u00bfListo para Unirte a Nuestros Casos de \u00c9xito?",
+    "clients.cta.title":
+      "\u00bfListo para Unirte a Nuestros Casos de \u00c9xito?",
     "clients.cta.description":
       "Hablemos sobre c\u00f3mo podemos ayudar a transformar tu negocio con soluciones de software modernas.",
     "clients.cta.button": "Inicia Tu Proyecto",
-
+    // Case Studies
+    "caseStudies.title": "Historias de Éxito",
+    "caseStudies.description":
+      "Descubre cómo hemos ayudado a empresas de diversas industrias a alcanzar sus objetivos de transformación digital a través de soluciones de software innovadoras.",
+    "caseStudies.readMore": "Leer más",
+    "caseStudies.techco.title": "Tech Co: Migración Exitosa a la Nube",
+    "caseStudies.techco.description":
+      "Ayudamos a una empresa tecnológica líder a migrar toda su infraestructura a la nube, resultando en una reducción de costos del 60% y mejor escalabilidad.",
+    "caseStudies.startup.title": "Startup: De MVP a Producción",
+    "caseStudies.startup.description":
+      "Construimos una plataforma SaaS escalable desde MVP hasta producción, ayudando a una startup a asegurar financiamiento Serie A y registrar más de 10,000 usuarios.",
+    "caseStudies.fintech.title": "FinTech: Plataforma de Pago Segura",
+    "caseStudies.fintech.description":
+      "Desarrollamos un sistema de procesamiento de pagos compatible con PCI que maneja millones en transacciones con 99.99% de disponibilidad.",
+    "caseStudies.ecommerce.title": "E-Commerce: Optimización de Rendimiento",
+    "caseStudies.ecommerce.description":
+      "Optimizamos una plataforma de e-commerce logrando cargas de página 3x más rápidas, 40% más conversiones y mayores ingresos.",
+    "caseStudies.health.title": "Salud: Portal de Pacientes",
+    "caseStudies.health.description":
+      "Creamos un portal de pacientes compatible con HIPAA que permite comunicación segura entre proveedores de salud y pacientes.",
+    "caseStudies.saas.title": "SaaS: Dashboard Empresarial",
+    "caseStudies.saas.description":
+      "Entregamos un dashboard de análisis completo para clientes empresariales con visualización de datos en tiempo real y reportes.",
     // Testimonials
     "testimonial.1.quote":
       "Suit Software entreg\u00f3 una plataforma de e-commerce excepcional que super\u00f3 nuestras expectativas. Su atenci\u00f3n al detalle nos ayud\u00f3 a aumentar nuestras ventas en l\u00ednea en un 200%.",
@@ -249,7 +297,8 @@ export const translations = {
     "testimonial.3.role": "CTO, FinanceFlow",
 
     // Contact
-    "contact.title": "Cont\u00e1ctanos",
+    "contact.label": "Ponte en Contacto",
+    "contact.title": "Contáctanos",
     "contact.description":
       "\u00bfListo para iniciar tu pr\u00f3ximo proyecto? Hablemos sobre c\u00f3mo podemos hacer realidad tu visi\u00f3n.",
     "contact.info.title": "Iniciemos una Conversaci\u00f3n",
@@ -258,7 +307,7 @@ export const translations = {
     "contact.email": "Correo",
     "contact.phone": "Tel\u00e9fono",
     "contact.office": "Oficina",
-    "contact.office.value": "Azuay, Cuenca, Ecuador",
+    "contact.office.value": "Loja, Cuenca, Quito, Ecuador",
     "contact.response.title": "Respuesta R\u00e1pida",
     "contact.response.description":
       "Normalmente respondemos a todas las consultas en 24 horas. Para asuntos urgentes, ll\u00e1manos directamente.",
