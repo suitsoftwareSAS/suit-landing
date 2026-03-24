@@ -283,8 +283,9 @@ const { lang = "en" } = Astro.props;
     try {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
+      console.log("Sending data to API:", data);
 
-      const response = await fetch("https://n8n.suitsoftware.com/webhook/contact-form-suit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
